@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- VISTAS -->
+    <!-- Vista lista Alumno -->
+    <record id="colegio_alumno_list_view" model="ir.ui.view">
+        <field name="name">colegio_alumno.list.view</field>
+        <field name="model">colegio.alumno</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre" />
+                <field name="apellido" />
+                <field name="fecha_nacimiento" />
+                <field name="legajo" />
+                <field name="email" />
+                <field name="telefono" />
+                <field name="direccion" />
+                <field name="pais" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista formulario Alumno -->
+    <record id="colegio_alumno_view_form" model="ir.ui.view">
+        <field name="name">colegio_alumno.view.form</field>
+        <field name="model">colegio.alumno</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="nombre" />
+                        <field name="apellido" />
+                        <field name="fecha_nacimiento" />
+                        <field name="legajo" />
+                        <field name="email" />
+                        <field name="telefono" />
+                        <field name="direccion" />
+                        <field name="pais" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista lista Programa -->
+    <record id="colegio_programa_view_tree" model="ir.ui.view">
+        <field name="name">colegio_programa.list.view</field>
+        <field name="model">colegio.programa</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre" />
+                <field name="descripcion" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista formulario Programa -->
+    <record id="colegio_programa_view_form" model="ir.ui.view">
+        <field name="name">colegio_programa.view.form</field>
+        <field name="model">colegio.programa</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="nombre" />
+                        <field name="descripcion"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista lista Inscripcion -->
+    <record id="colegio_inscripcion_view_tree" model="ir.ui.view">
+        <field name="name">colegio_inscripcion.list.view</field>
+        <field name="model">colegio.inscripcion</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="alumno_id" />
+                <field name="programa_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista formulario Inscripcion-->
+    <record id="colegio_inscripcion_view_form" model="ir.ui.view">
+        <field name="name">colegio_inscripcion.view.form</field>
+        <field name="model">colegio.inscripcion</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="alumno_id" />
+                        <field name="programa_id" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ACCIONES -->
+    <!-- Accion Alumno -->
+    <record id="colegio_alumno_action" model="ir.actions.act_window">
+        <field name="name">Alumno</field>
+        <field name="res_model">colegio.alumno</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Accion Programa -->
+    <record id="colegio_programa_action" model="ir.actions.act_window">
+        <field name="name">Programa</field>
+        <field name="res_model">colegio.programa</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Accion Inscripcion -->
+    <record id="colegio_inscripcion_action" model="ir.actions.act_window">
+        <field name="name">Inscripción</field>
+        <field name="res_model">colegio.inscripcion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- MENUS -->
+    <!-- Menu principal en Odoo -->
+    <menuitem
+        id="colegio_menu"
+        name="Colegio"
+    />
+
+    <!-- Submenu de Alumno -->
+    <menuitem
+        id="alumno_menu"
+        action="colegio_alumno_action"
+        name="Alumno"
+        parent="colegio_menu"
+    />
+
+    <!-- Submenu de Programa -->
+    <menuitem
+        id="programa_menu"
+        action="colegio_programa_action"
+        name="Programa"
+        parent="colegio_menu"
+    />
+
+    <!-- Submenu de Inscripcion -->
+    <menuitem
+        id="inscripcion_menu"
+        action="colegio_inscripcion_action"
+        name="Inscripción"
+        parent="colegio_menu"
+    />
+</odoo>

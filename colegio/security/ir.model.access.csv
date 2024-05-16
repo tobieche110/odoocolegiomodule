@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+colegio_programa_user,Base User,model_colegio_programa,base.group_user,1,1,1,1
+colegio_alumno_user,Base User,model_colegio_alumno,base.group_user,1,1,1,1
+colegio_inscripcion_user,Base User,model_colegio_inscripcion,base.group_user,1,1,1,1
